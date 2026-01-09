@@ -403,7 +403,9 @@ def export_to_dict(df: pd.DataFrame, risk_score: float) -> Dict[str, Any]:
         top_signals
     )
     
-    # Add metadata
+    # Add metadata (use fixed timestamp for determinism)
+    from hardening import CACHE_BUILD_TIMESTAMP
+    
     context['metadata'] = {
         'analysis_engine': 'Portfolio Risk Intelligence v1.0',
         'data_points_analyzed': len(df),
@@ -411,7 +413,7 @@ def export_to_dict(df: pd.DataFrame, risk_score: float) -> Dict[str, Any]:
             'start': df['date'].min().strftime('%Y-%m-%d') if not df.empty else None,
             'end': df['date'].max().strftime('%Y-%m-%d') if not df.empty else None
         },
-        'generated_at': datetime.now().isoformat()
+        'generated_at': CACHE_BUILD_TIMESTAMP  # Fixed timestamp for determinism
     }
     
     return context

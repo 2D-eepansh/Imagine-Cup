@@ -40,6 +40,8 @@ python demo.py sample_data.csv "Demo Startup"
 - ✅ **Anomaly detection** - Isolation Forest for multivariate pattern detection
 - ✅ **Risk scoring** - Single 0-100 score with explainable components
 - ✅ **Severity classification** - Low/Medium/High risk labeling
+- ✅ **Decision foresight** - Urgency classification, time windows, reversibility markers
+- ✅ **Portfolio attention** - Priority ranking, sector concentration, cross-startup patterns
 - ✅ **Intervention recommendations** - Actionable next steps for VCs
 
 ### Input Data
@@ -141,12 +143,43 @@ Recommendations:
 - Anomaly detection
 - Portfolio utilities
 
-### Phase 2: Azure OpenAI
-```python
-context = prepare_ai_reasoning_context(df, risk_score)
-report = azure_openai.generate_risk_report(context)
-# → Natural language investor memo
-```
+### Phase 2: ✅ Full-Stack Architecture
+- Frontend/backend separation
+- FastAPI REST endpoints
+- React dashboard with data binding
+- CORS-secured local demo
+
+### Phase 3: ✅ Azure OpenAI Reasoning
+- GPT-4 integration for investor-grade explanations
+- Deterministic caching (hash-based)
+- Why it matters / What happens next / Recommended action
+
+### Phase 4: ✅ Portfolio Expansion
+- 15 startups with realistic archetypes
+- Post-hype collapse, silent failure, zombie, etc.
+- 45-60 days operational history per startup
+
+### Phase 5: ✅ Time & Scenario Intelligence
+- Historical snapshots (60→0 days back)
+- Causality markers (when risk first detected)
+- Intervention scenarios (no/early/delayed)
+
+### Phase 6: ✅ Decision Foresight
+- Urgency classification (LOW/MEDIUM/HIGH/CRITICAL)
+- Decision windows (bounded time estimates)
+- Confidence framing (qualitative assessment)
+- Reversibility markers (intervention viability)
+
+### Phase 7: ✅ Portfolio Attention
+- Attention priority ranking (not just risk scores)
+- Risk concentration by sector/urgency
+- Cross-startup pattern detection
+- Actionable attention summaries for partners
+
+### Future: Real-time Monitoring
+- Azure Event Grid for data ingestion
+- Automated risk assessment on data updates
+- Email alerts for threshold breaches
 
 ### Phase 3: Azure Functions API
 ```

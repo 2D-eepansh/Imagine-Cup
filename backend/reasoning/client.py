@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 from openai import AzureOpenAI, OpenAIError
 
-from backend.reasoning import prompts
+from reasoning import prompts
 
 
 class AzureReasoningClient:
@@ -49,9 +49,16 @@ class AzureReasoningClient:
             parsed = self._parse_response(content)
             if parsed:
                 return parsed
-        except OpenAIError:
-            pass  # Fall back to deterministic reasoning
+        except OpenAIError as e:
+            # Log Azure OpenAI errors internally but don't expose
+            import logging
+            logging.getLogger("reasoning").warning(f"Azure OpenAI error: {type(e).__name__}, using fallback")
+        except Exception as e:
+            # Catch all other errors (network, timeout, etc.)
+            import logging
+            logging.getLogger("reasoning").warning(f"Reasoning error: {type(e).__name__}, using fallback")
 
+        # Always return deterministic fallback if anything fails
         return self._fallback_reasoning(snapshot)
 
     def _parse_response(self, content: str) -> Dict[str, str]:

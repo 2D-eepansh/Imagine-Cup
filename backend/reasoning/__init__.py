@@ -10,6 +10,6 @@ This package provides:
 - Deterministic orchestration with caching to avoid repeat calls
 """
 
-from backend.reasoning.orchestrator import get_investor_reasoning
+from reasoning.orchestrator import get_investor_reasoning
 
 __all__ = ["get_investor_reasoning"]

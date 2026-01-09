@@ -17,7 +17,7 @@ export function StartupRow({ startup, rank, isSelected, onSelect }: StartupRowPr
     <button
       onClick={() => onSelect(startup)}
       className={cn(
-        'w-full grid grid-cols-[1fr_80px_100px_80px_80px] items-center gap-4 px-4 py-3 text-left transition-colors',
+        'w-full grid grid-cols-[minmax(200px,1fr)_80px_100px_80px_100px] items-center gap-4 px-4 py-3 text-left transition-colors',
         'hover:bg-accent/50 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring',
         isSelected ? 'bg-accent' : 'bg-transparent'
       )}

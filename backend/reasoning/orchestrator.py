@@ -3,7 +3,7 @@
 from hashlib import sha256
 from typing import Any, Dict, Tuple
 
-from backend.reasoning.client import AzureReasoningClient
+from reasoning.client import AzureReasoningClient
 
 _reasoning_client = AzureReasoningClient()
 _reasoning_cache: Dict[str, Dict[str, str]] = {}
